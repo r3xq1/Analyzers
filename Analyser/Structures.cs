@@ -1,4 +1,4 @@
-﻿namespace Analyser
+namespace Analyser
 {
     using System.Runtime.InteropServices;
 
@@ -7,14 +7,12 @@
         [StructLayout(LayoutKind.Sequential)]
         public struct LASTINPUTINFO
         {
-            public uint cbSize;
-            public uint dwTime;
+            public static readonly int SizeOf = Marshal.SizeOf(typeof(LASTINPUTINFO));
 
-            //public LASTINPUTINFO(uint init)
-            //{
-            //    cbSize = (uint)Marshal.SizeOf<LASTINPUTINFO>();
-            //    dwTime = init;
-            //}
+            [MarshalAs(UnmanagedType.U4)]
+            public uint cbSize;
+            [MarshalAs(UnmanagedType.U4)]
+            public uint dwTime;
         }
     }
 }
